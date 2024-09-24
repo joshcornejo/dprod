@@ -1,21 +1,23 @@
 {
-  "@type": "Policy",
+  "@type": "Agreement",
   "id": "56456df-dfg-34535345-5545",
-  
-  "assigner": 'https://schema.org/person/AdamSmith",
-  "target": "https://data.org/data-product/equity-trade-xxx",
-  
+    
   "permission": [
       {
-       "action": "odrl:read",
-       "constraint": [
-          {
-            "@type": "Constraint",
-            "leftOperand": "workingCountry",
-            "operator": "odrl:isAnyOf",
-            "rightOperand": [region:EMEA, region:APAC],
-            "description": " Permission to read all the datasets of the product if user is working inside EMEA or APAC"
-        }
+          "assigner": "https://schema.org/person/AdamSmith",
+          "assignee": {
+                "@type": "PartyCollection",
+                "source": "https://schema.org/person/SmithGroup",
+                "refinement": [ {
+                     "@type": "Constraint",
+                     "leftOperand": "spatial",
+                     "operator": "odrl:isAnyOf",
+                     "rightOperand": [region:EMEA, region:APAC],
+                     "description": " Permission to read all the datasets of the product if user is working inside EMEA or APAC"
+                }]
+          },
+          "target": "https://data.org/data-product/equity-trade-xxx",
+          "action": "odrl:use"
     ]
 }
         
